@@ -5,11 +5,19 @@ const cors = require("cors");
 
 const app = express()
 
-// The below line is required to allow cross-origin requests
-app.use(cors({
-    origin: 'http://localhost:3000',        // client port number = 3000
-    credentials: true, // If you're using credentials (e.g., cookies)
-}));
+// The below line is required to allow cross - origin requests
+// app.use(cors({
+//     origin: 'http://localhost:3000',        // client port number = 3000
+//     credentials: true, // If you're using credentials (e.g., cookies)
+// }));
+
+const corsOptions = {
+    origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions)) // Use this after the variable declaration
+
 
 const port = 5000
 
