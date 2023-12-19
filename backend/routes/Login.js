@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const JWT_SECRET = "Harryisagoodb$oy"
 
 // ROUTE: Check whether the user trying to login is new or an old user.
-// POST Request: "http://localhost:5000/Already_Registered". 
+// POST Request: "http://localhost:5000/Login". 
 // No authentication required
 
 router.post('/', [body('email', 'Not a valid email !').isEmail()],
@@ -21,15 +21,7 @@ router.post('/', [body('email', 'Not a valid email !').isEmail()],
             try {
                 let user_info = await User.findOne({ email: req.body.email })
                 if (user_info) {         // => the email already exists in database.
-                    const register_info = await Register.findOne({ user_id: user_info.id })      // fetching register_id of this user
-
-                    const register_id = register_info.id
-
-                    const data = {      // token id will be generated on the basis of id of the user profile in MongoDB database
-                        user: { user_profile_id: user_info.id }
-                    }
-                    const jwt_auth_token = jwt.sign(data, JWT_SECRET)  // sync method, no need to use await                    
-                    res.status(200).json({ "val": { 'auth_token': jwt_auth_token, 'register_id': register_id } })        // send token id and 'Registration' id to the user
+                    return res.status(200).json({ 'val': [{ "msg": 'Found an email in the database !' }] })
                 }
                 else {
                     return res.status(400).json({ 'val': [{ "msg": 'Profile does not exist !' }] })

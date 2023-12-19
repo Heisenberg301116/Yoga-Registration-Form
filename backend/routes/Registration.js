@@ -33,7 +33,20 @@ router.put('/:id', fetch_user_id, [
             return res.status(401).json({ 'val': [{ "msg": 'Not Allowed !' }] })
         }
         else if (registered_user.last_registered.getMonth() === new Date().getMonth()) {         // If the user has already registered this month
-            return res.status(409).json({ 'val': [{ "msg": 'You have already registered !' }] })
+            // today's date
+            const today = new Date();
+            // Get next month's index(0 based)
+            const nextMonth = today.getMonth() + 1;
+            // Get year
+            const year = today.getFullYear() + (nextMonth === 12 ? 1 : 0);
+            // Get first day of the next month
+            const firstDayOfNextMonth = new Date(year, nextMonth % 12, 1);
+
+            const month = firstDayOfNextMonth.getMonth() + 1; // Adding 1 because getMonth() returns zero-based months (0 for January)
+            const day = firstDayOfNextMonth.getDate();
+            const fullDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+
+            return res.status(409).json({ 'val': [{ "msg": `You have already registered, come back on ${fullDate} !` }] })
         }
         else {       // Update the registered date and batch
             const new_registration = {

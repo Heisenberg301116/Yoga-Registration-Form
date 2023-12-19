@@ -13,7 +13,10 @@ function Create_Account(props) {
       const elements = date_of_birth.split("-")
       const modified_dob = elements[0] + "-" + elements[1] + "-" + elements[2]
 
-      const response = await fetch("https://yoga-registration-form-production.up.railway.app/Create_Account", {
+      const url = "https://yoga-registration-form-production.up.railway.app/Create_Account"
+      // const url = "http://localhost:5000/Create_Account"
+
+      const response = await fetch(url, {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, name: name, password: password, date_of_birth: modified_dob })

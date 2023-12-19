@@ -7,18 +7,24 @@ function Login(props) {
   const SaveData = async () => {
     try {
       // Perform user login by calling the REST API
-      const response = await fetch("https://yoga-registration-form-production.up.railway.app/Login", {
+
+      const url = "https://yoga-registration-form-production.up.railway.app/Login"
+      // const url = "http://localhost:5000/Login"
+
+      const response = await fetch(url, {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, })
       })
 
+
       if (!response.ok) {
         throw await response.json() // this will parse the JSON response body
       }
       else {
-        const data = await response.json()
-        const framed_message = { 'status': 200, 'auth_token': data.val.auth_token, 'register_id': data.val.register_id }
+        const framed_message = { 'status': 200 }
+        props.set_App_Email(email)
+
         props.handle_outcome(framed_message)
       }
     }
@@ -26,7 +32,7 @@ function Login(props) {
       const error_array = error.val
       if (error_array[0].msg === "Profile does not exist !") {
         props.set_App_Email(email)
-        const framed_message = { 'status': 401, 'msg': error_array[0].msg }
+        const framed_message = { 'status': 401, 'msg': "Profile does not exist please create one !" }
         props.handle_outcome(framed_message)
       }
       else {

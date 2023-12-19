@@ -21,7 +21,9 @@ function Register(props) {
       const pay = await CompletePayment()
 
       // Register for the time slot
+
       const url = `https://yoga-registration-form-production.up.railway.app/Register_User/${register_id}`
+      // const url = `http://localhost:5000/Register_User/${register_id}`
 
       const response = await fetch(url, {
         method: "put",

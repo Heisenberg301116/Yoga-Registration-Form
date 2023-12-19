@@ -28,6 +28,8 @@ app.use('/Login', require('./routes/Login'))
 
 app.use('/Create_Account', require('./routes/Create_User_Profile'))      // Create_User_Profile is a js file that will process and return the output at this endpoint: http://localhost:5000/Create_User_Profile
 
+app.use('/Authenticate_User', require('./routes/Authentication'))
+
 app.use('/Register_User', require('./routes/Registration'))
 
 app.listen(port, () => {
