@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/your-Yoga-Registration-Form/static/css/main.0e6beadd.css",
+    "main.js": "/your-Yoga-Registration-Form/static/js/main.b7f6985b.js",
+    "static/js/787.74585fee.chunk.js": "/your-Yoga-Registration-Form/static/js/787.74585fee.chunk.js",
+    "index.html": "/your-Yoga-Registration-Form/index.html",
+    "main.0e6beadd.css.map": "/your-Yoga-Registration-Form/static/css/main.0e6beadd.css.map",
+    "main.b7f6985b.js.map": "/your-Yoga-Registration-Form/static/js/main.b7f6985b.js.map",
+    "787.74585fee.chunk.js.map": "/your-Yoga-Registration-Form/static/js/787.74585fee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e6beadd.css",
+    "static/js/main.b7f6985b.js"
+  ]
+}
