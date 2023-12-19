@@ -46,7 +46,7 @@ router.put('/:id', fetch_user_id, [
             const day = firstDayOfNextMonth.getDate();
             const fullDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
 
-            return res.status(409).json({ 'val': [{ "msg": `You have already registered, come back on ${fullDate} !` }] })
+            return res.status(409).send({ 'val': `You have already registered, come back on ${fullDate} !` })
         }
         else {       // Update the registered date and batch
             const new_registration = {

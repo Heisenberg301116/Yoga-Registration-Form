@@ -31,7 +31,12 @@ function Register(props) {
         body: JSON.stringify({ batch: batch })
       })
 
-      if (!response.ok) {
+      if (response.status === 409) {
+        const data = await response.json()
+        const framed_message = { 'status': 409, 'msg': data.val }
+        props.handle_outcome(framed_message)
+      }
+      else if (!response.ok) {
         throw await response.json() // this will parse the JSON response body
       }
       else {
