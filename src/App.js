@@ -69,7 +69,7 @@ function App() {
       Show_Alert("success", val.msg)
     }
     else if (val.status === 409) {   // Success
-      Show_Alert("alert", val.msg)
+      Show_Alert("warning", val.msg)
     }
     else {
       Show_Alert("danger", val.msg)      // Error
