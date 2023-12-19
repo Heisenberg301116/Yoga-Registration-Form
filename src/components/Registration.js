@@ -60,7 +60,7 @@ function Register(props) {
           Registration
         </h1>
 
-        <div className="formContainer" style={{ backgroundColor: 'silver', borderWidth: '3px', borderRadius: '1%', width: '35%', padding: '2%', fontSize: 'larger' }}>
+        <div className="formContainer" style={{ backgroundColor: 'silver', borderWidth: '3px', borderRadius: '1%', width: '40%', padding: '6%', fontSize: 'larger' }}>
 
           <div style={{ display: "flex", alignItems: "center", marginBottom: '20px' }}>
             <input
