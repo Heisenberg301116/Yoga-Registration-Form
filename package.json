@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Heisenberg301116.github.io/your-Yoga-Registration-Form",
   "name": "flexmoney",
   "version": "0.1.0",
   "private": true,
@@ -8,12 +9,15 @@
     "@testing-library/user-event": "^13.5.0",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
+    "gh-pages": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
