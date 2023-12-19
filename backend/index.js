@@ -19,7 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
 
-const port = 5000
+const port = process.env.PORT || 5000;
 
 app.use(express.json())      // middleware
 
